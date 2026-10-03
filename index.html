@@ -1,0 +1,1253 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Paroliere by Lux</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+    <link rel="apple-touch-icon" href="icon-192.png">
+    <meta name="theme-color" content="#1e1b4b">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+
+<body>
+    <div id="app">
+
+        
+        
+        
+        <div id="menu-screen" class="screen active" data-screen-id="menu" data-screen-name="Menu Principale">
+            <div class="menu-brand-header">
+                <h1 class="brand-title">PAROLIERE</h1>
+                <div class="brand-sub-row">
+                    <span class="brand-subtitle" title="Informazioni sull'App e Note di Versione">by Lux</span>
+                    <span class="version-badge-trigger" id="version-badge-header" title="Informazioni sull'App e Note di Versione">v0.9.3</span>
+                </div>
+            </div>
+
+            <div class="brand-logo-container">
+                <img src="assets/icons/03_original_with_text.jpg" alt="Paroliere by Lux Logo" class="brand-logo-img">
+            </div>
+
+            <div class="menu-card">
+                <div class="form-group">
+                    <label id="mode-selector-label">Modalità di Gioco</label>
+                    <div class="mode-selector" id="main-mode-selector">
+                        <button type="button" class="mode-btn active" data-mode="solo">
+                            <span class="icon mode-icon-solo" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
+                                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                </svg>
+                            </span>
+                            <span>Solitario</span>
+                        </button>
+                        <button type="button" class="mode-btn" data-mode="pass">
+                            <span class="icon mode-icon-pass" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
+                                    <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
+                                </svg>
+                            </span>
+                            <span>Pass & Play</span>
+                        </button>
+                        <button type="button" class="mode-btn" data-mode="shared">
+                            <span class="icon mode-icon-shared" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
+                                    <path d="M21 3H3c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H3V5h18v14zM7 7l4 3V8h6V6h-6V4L7 7zm10 10l-4-3v2H7v2h6v2l4-3z"/>
+                                </svg>
+                            </span>
+                            <span>Schermo Condiviso</span>
+                        </button>
+                        <button type="button" class="mode-btn" data-mode="duel">
+                            <span class="icon mode-icon-duel" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
+                                    <path d="M7 2v11h3v9l7-12h-4l4-8z"/>
+                                </svg>
+                            </span>
+                            <span>2 dispositivi</span>
+                        </button>
+                    </div>
+
+                    
+                    <div class="mode-selector hidden" id="pass-submode-selector">
+                        <button type="button" class="mode-btn pass-back-btn" id="pass-back-btn" title="Torna alle altre modalità">
+                            <span class="icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
+                                    <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+                                </svg>
+                            </span>
+                            <span>Indietro</span>
+                        </button>
+                        <button type="button" class="mode-btn active" data-submode="classic">
+                            <span class="icon mode-icon-pass" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
+                                    <path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/>
+                                </svg>
+                            </span>
+                            <span>Classico</span>
+                        </button>
+                        <button type="button" class="mode-btn" data-submode="alternate">
+                            <span class="icon mode-icon-pass" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor">
+                                    <path d="M7 2v11h3v9l7-12h-4l4-8z"/>
+                                </svg>
+                            </span>
+                            <span>Fasi Alternate</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="language-select">Lingua Dizionario</label>
+                    <select id="language-select" class="select-custom">
+                        <option value="it" selected>🇮🇹 Italiano</option>
+                        <option value="en">🇬🇧 English</option>
+                        <option value="es">🇪🇸 Español</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="size-select">Griglia</label>
+                    <select id="size-select" class="select-custom">
+                        <option value="4" selected>4x4 Classica (16 Dadi)</option>
+                        <option value="5">5x5 Grande (25 Dadi)</option>
+                    </select>
+                </div>
+
+                <div class="form-group" id="standard-timer-group">
+                    <label for="timer-select">Durata Manche</label>
+                    <select id="timer-select" class="select-custom">
+                        <option value="30">30 Secondi (Debug)</option>
+                        <option value="60">1 Minuto (Veloce)</option>
+                        <option value="120" selected>2 Minuti (Standard)</option>
+                        <option value="180">3 Minuti (Boggle Ufficiale)</option>
+                    </select>
+                </div>
+
+                
+                <div id="alt-pass-config" class="hidden">
+                    <div class="form-group">
+                        <label for="alt-total-timer-select">Durata Partita Totale</label>
+                        <select id="alt-total-timer-select" class="select-custom">
+                            <option value="120">2 Minuti (Veloce)</option>
+                            <option value="180">3 Minuti</option>
+                            <option value="240" selected>4 Minuti (Standard)</option>
+                            <option value="360">6 Minuti (Lunga)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="alt-turn-timer-select">Tempo per Turno</label>
+                        <select id="alt-turn-timer-select" class="select-custom">
+                            <option value="10">10 Secondi (Lampo)</option>
+                            <option value="15" selected>15 Secondi (Standard)</option>
+                            <option value="20">20 Secondi</option>
+                            <option value="30">30 Secondi</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="alt-pause-timer-select">Pausa Cambio Mano</label>
+                        <select id="alt-pause-timer-select" class="select-custom">
+                            <option value="3">3 Secondi (Rapida)</option>
+                            <option value="5" selected>5 Secondi (Standard)</option>
+                            <option value="7">7 Secondi</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-footer">
+                <div class="menu-action-box">
+                    <button id="start-btn" class="btn">
+                        <span>Inizia Partita</span> ➔
+                    </button>
+                </div>
+
+                <div class="menu-bottom-bar">
+                    <div class="menu-bottom-left">
+                        <button id="rules-btn" class="btn-secondary btn menu-bottom-btn" title="Regole del Gioco" aria-label="Regole">📖</button>
+                        <button id="dict-menu-btn" class="btn-secondary btn menu-bottom-btn" title="Dizionario Personale" aria-label="Dizionario">📚</button>
+                        <button id="settings-btn" class="btn-secondary btn menu-bottom-btn" title="Impostazioni" aria-label="Impostazioni">⚙️</button>
+                        <button id="about-btn" class="btn-secondary btn menu-bottom-btn" title="Informazioni & Revisioni" aria-label="Informazioni">ℹ️</button>
+                    </div>
+                    <div class="menu-bottom-right">
+                        <button id="sound-btn" class="icon-btn menu-bottom-btn" title="Audio" aria-label="Audio">🔊</button>
+                        <button id="haptics-btn" class="icon-btn menu-bottom-btn" title="Vibrazione" aria-label="Vibrazione">📳</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        
+        
+        <div id="lobby-screen" class="screen" data-screen-id="lobby" data-screen-name="Sfida 2 Dispositivi (Lobby)">
+            <div style="display:flex;justify-content:space-between;align-items:center;width:100%;margin-bottom:6px;">
+                <h1 class="brand-title" style="font-size:1.7rem;text-align:left;margin-bottom:0;"><span class="emoji-icon">⚡</span> SFIDA 2 DISPOSITIVI</h1>
+                <button id="lobby-help-btn" class="btn btn-secondary" style="padding:6px 12px;font-size:0.8rem;" title="Guida passo-passo">
+                    ℹ️ Come Funziona
+                </button>
+            </div>
+            <p class="brand-subtitle" style="text-align:left;margin-bottom:12px;">Lobby Multigiocatore • Gioca su 2 telefoni, tablet o computer</p>
+
+            <div class="menu-card" style="padding:14px;">
+                
+                <div id="duel-config" class="duel-config-panel" style="margin-bottom:12px;">
+                    <div class="form-group" style="margin-bottom:8px;">
+                        <label>Modalità Punteggio</label>
+                        <div class="mode-selector">
+                            <button type="button" class="mode-btn active" id="duel-scoring-classic">
+                                <span class="icon">🏆</span>
+                                <span>Classica</span>
+                            </button>
+                            <button type="button" class="mode-btn" id="duel-scoring-realtime">
+                                <span class="icon">⚡</span>
+                                <span>Tempo Reale</span>
+                            </button>
+                        </div>
+                    </div>
+                    <button type="button" class="mode-btn duel-toggle-btn" id="duel-show-opponent-toggle">
+                        <span class="icon" id="duel-opp-icon">🙈</span>
+                        <span id="duel-opp-label">Nascondi punteggio avversario</span>
+                    </button>
+                </div>
+
+                
+                <div class="lobby-tab-bar">
+                    <button id="lobby-tab-cloud" class="lobby-tab-btn active">🌐 Internet Cloud (anche a distanza)</button>
+                    <button id="lobby-tab-direct" class="lobby-tab-btn">📴 Rete locale (Wi-Fi o hotspot)</button>
+                </div>
+
+                
+                <div id="lobby-panel-cloud" class="lobby-tab-panel">
+                    <div style="background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.2);border-radius:var(--radius-md);padding:8px 10px;margin-bottom:10px;font-size:0.78rem;color:var(--text-muted);display:flex;align-items:center;gap:6px;">
+                        <span>💡</span>
+                        <span>Serve Internet su entrambi i dispositivi. Non serve la stessa Wi-Fi: potete essere anche a distanza.</span>
+                    </div>
+
+                    <button id="host-create-btn" class="btn" style="width:100%;">🎮 Crea Stanza (Host)</button>
+
+                    <div id="host-code-display" class="lobby-code-box hidden">
+                        <p style="font-size: 0.82rem; color: var(--text-muted);">Comunica questo codice all'avversario:</p>
+                        <div id="room-code-val" class="lobby-code">----</div>
+                        
+                        <div id="room-qr-container" style="margin-top:8px; display:flex; justify-content:center;"></div>
+                        <p style="font-size: 0.78rem; color: var(--primary-light); margin-top: 6px;">In attesa dell'avversario...</p>
+                    </div>
+
+                    <div style="text-align: center; color: var(--text-muted); font-size: 0.8rem; margin: 8px 0;">— oppure entra come ospite —</div>
+
+                    <div class="form-group" style="margin-bottom:8px;">
+                        <label for="join-code-input">Codice Stanza dell'Host</label>
+                        <div style="display:flex;gap:6px;">
+                            <input type="text" id="join-code-input" class="select-custom"
+                                   placeholder="Es. ABCD" maxlength="6"
+                                   style="text-transform:uppercase; text-align:center; letter-spacing:3px; font-size:1.15rem;margin-bottom:0;flex:1;">
+                            <button id="scan-cloud-qr-btn" class="btn btn-secondary" style="padding:0 12px;font-size:1.1rem;" title="Inquadra QR con fotocamera">
+                                📷
+                            </button>
+                        </div>
+                    </div>
+
+                    <button id="join-room-btn" class="btn btn-secondary" style="width:100%;">🔗 Connettiti alla Stanza</button>
+                </div>
+
+                
+                <div id="lobby-panel-direct" class="lobby-tab-panel hidden">
+                    <div style="background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.25);border-radius:var(--radius-md);padding:8px 10px;margin-bottom:10px;font-size:0.78rem;color:#6ee7b7;display:flex;align-items:center;gap:6px;">
+                        <span>📶</span>
+                        <span>I dispositivi devono essere sulla stessa rete locale: stessa Wi-Fi oppure uno crea un hotspot a cui si collega l'altro. Internet non serve.</span>
+                    </div>
+
+                    
+                    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-md);padding:10px;margin-bottom:10px;">
+                        <strong style="font-size:0.85rem;display:block;margin-bottom:6px;">1. Telefono 1 (Chi fa da Host):</strong>
+                        <button id="direct-host-btn" class="btn" style="width:100%;font-size:0.85rem;padding:9px 12px;">
+                            👑 Crea Stanza Diretta (Mostra QR)
+                        </button>
+                        
+                        <div id="direct-host-qr-box" class="hidden" style="margin-top:10px;text-align:center;">
+                            <p style="font-size:0.78rem;color:var(--text-muted);">Scansiona il QR oppure copia il codice e invialo via WhatsApp:</p>
+                            <div id="direct-host-qr-container" style="display:flex;justify-content:center;margin:6px 0;"></div>
+                            <textarea id="direct-host-code" class="select-custom scanner-manual-input" rows="3" readonly aria-label="Codice da inviare all'ospite"></textarea>
+                            <button id="direct-host-copy-btn" class="btn btn-secondary connection-copy-btn" type="button">Copia codice per l'ospite</button>
+                            <button id="direct-host-scan-answer-btn" class="btn btn-accent" style="width:100%;margin-top:8px;font-size:0.85rem;">
+                                📷 Inquadra QR di Risposta dell'Ospite
+                            </button>
+                        </div>
+                    </div>
+
+                    
+                    <div style="background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:var(--radius-md);padding:10px;">
+                        <strong style="font-size:0.85rem;display:block;margin-bottom:6px;">2. Telefono 2 (Ospite):</strong>
+                        <button id="direct-guest-scan-btn" class="btn btn-secondary" style="width:100%;font-size:0.85rem;padding:9px 12px;">
+                            📷 Inquadra QR dell'Host
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <button id="back-from-lobby-btn" class="btn btn-secondary" style="margin-top: auto;">⬅ Torna al Menu</button>
+        </div>
+
+        
+        
+        
+        <div id="game-screen" class="screen" data-screen-id="game" data-screen-name="Partita in Corso">
+            <div class="game-header">
+                
+                <div class="game-topbar">
+                    <button id="exit-btn" class="icon-btn" title="Esci">✕</button>
+                    <div id="timer-pill" class="timer-pill" title="Tempo Rimanente">
+                        <span class="timer-icon">⏳</span> <span id="timer-val">2:00</span>
+                    </div>
+                    <div id="alt-turn-pill" class="alt-turn-pill hidden" title="Tempo Turno Corrente">
+                        <span class="turn-timer-icon">⏱️</span> <span id="alt-turn-val">15s</span>
+                    </div>
+                    <button id="dice-rot-toggle-btn" class="icon-btn dice-rot-toggle-btn hidden active" title="Rotazione Dadi: ON" aria-pressed="true">🎲↻</button>
+                    <button id="pause-btn" class="icon-btn pause-btn" title="Metti in Pausa">⏸️</button>
+                    <div id="crossing-indicator-pill" class="crossing-pill" title="Regola Incrocio (Tocca per info)">
+                        <span id="crossing-icon">🔀</span> <span id="crossing-label" class="crossing-label">Incrocio</span>
+                    </div>
+                </div>
+
+                
+                <div class="game-subbar">
+                    <div class="game-meta-group">
+                        <div id="game-mode-pill" class="stat-pill mode-pill" title="Modalità di Gioco">
+                            <span id="game-mode-icon">👤</span> <span id="game-mode-label">Solitario</span>
+                        </div>
+                        <div id="round-indicator-pill" class="stat-pill round-pill hidden" title="Mano corrente">
+                            <span id="round-indicator-label">Mano 1</span>
+                        </div>
+                        <div id="player-indicator" class="player-tag hidden">Giocatore 1</div>
+                    </div>
+                    <div class="game-scores-group">
+                        <div id="score-pill" class="stat-pill score-pill" title="Punteggio / Massimo ottenibile">
+                            <span>★</span> <span id="score-val">0</span><span id="score-max-tag" class="score-max-tag hidden">/<span id="score-max-val">?</span></span>
+                            <span id="score-pending-tag" class="score-pending-tag hidden">(+<span id="score-pending-val">0</span>?)</span>
+                        </div>
+                        <div id="opponent-score-pill" class="stat-pill opponent-score-pill hidden" title="Punteggio Avversario">
+                            <span>⚡ <span id="opponent-name-label">Avv.</span>:</span> <span id="opponent-score-val">0</span><span id="opponent-score-pending-tag" class="score-pending-tag hidden">(+<span id="opponent-score-pending-val">0</span>?)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="word-preview-container">
+                <div id="current-word" class="word-preview"></div>
+            </div>
+
+            <div class="board-container">
+                <canvas id="word-path-canvas"></canvas>
+                <div id="board"></div>
+                
+                <div id="start-countdown-overlay" class="board-pause-overlay start-countdown-overlay hidden" data-screen-id="overlay_start_countdown" data-screen-name="Conto alla Rovescia Partita">
+                    <div class="start-countdown-card">
+                        <div id="start-countdown-badge" class="start-countdown-badge">PRONTI</div>
+                        <div id="start-countdown-sub" class="start-countdown-sub">Tocca per iniziare subito ⏭️</div>
+                    </div>
+                </div>
+
+                
+                <div id="board-pause-overlay" class="board-pause-overlay hidden" data-screen-id="overlay_pause" data-screen-name="Partita in Pausa">
+                    <div class="pause-card">
+                        <div class="pause-icon" id="pause-icon">⏸️</div>
+                        <h3 class="pause-title" id="pause-title">GIOCO IN PAUSA</h3>
+                        <p class="pause-subtitle" id="pause-subtitle">Il tempo è fermo e le lettere sono oscurate</p>
+                        <div id="pause-countdown" class="pause-countdown hidden"></div>
+                        <button id="resume-btn" class="btn resume-btn">▶️ Riprendi Partita</button>
+                    </div>
+                </div>
+
+                
+                <div id="alt-handoff-overlay" class="board-pause-overlay alt-handoff-overlay hidden" data-screen-id="overlay_alt_handoff" data-screen-name="Cambio Turno">
+                    <div class="pause-card alt-handoff-card">
+                        <div class="alt-handoff-icon" id="alt-handoff-icon">🔄</div>
+                        <h3 class="pause-title alt-handoff-title" id="alt-handoff-title">CAMBIO TURNO!</h3>
+                        <p class="pause-subtitle" id="alt-handoff-subtitle">Passa il dispositivo a <strong id="alt-handoff-player-name" class="alt-next-player-name">Giocatore 2</strong></p>
+                        <div id="alt-handoff-countdown" class="alt-handoff-countdown">5</div>
+                        <button id="alt-handoff-ready-btn" class="btn resume-btn alt-ready-btn">Sono Pronto! ➔</button>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div id="shared-game-bar" class="shared-game-bar hidden">
+                <div class="shared-game-hint">
+                    <span style="font-size:1.2rem;">📝</span>
+                    <span><strong>Modalità Carta e Penna</strong>: cercate le parole e scrivetele sui vostri fogli! I dadi sono orientati casualmente.</span>
+                </div>
+                <button id="shared-finish-btn" class="btn btn-accent shared-finish-btn">
+                    🏁 Termina Manche Ora
+                </button>
+            </div>
+
+            <div class="game-controls" id="game-controls-bar">
+                <button id="clear-btn" class="btn btn-secondary" style="flex: 1;">✕ Cancella</button>
+                <button id="submit-btn" class="btn" style="flex: 2;">✓ Invia Parola</button>
+            </div>
+
+            <div class="found-words-container" id="found-words-list"></div>
+
+            
+            <div id="alt-dual-dashboard" class="alt-dual-dashboard hidden">
+                
+                <div id="alt-p1-box" class="alt-player-box p1-theme active-turn">
+                    <div class="alt-player-header">
+                        <div class="alt-player-title">
+                            <span class="alt-player-dot"></span>
+                            <span class="alt-player-name" id="alt-p1-name">Giocatore 1</span>
+                        </div>
+                        <div class="alt-player-stats">
+                            <span class="alt-player-score" id="alt-p1-score">0 pt</span>
+                            <span class="alt-player-count" id="alt-p1-count">(0)</span>
+                        </div>
+                    </div>
+                    <div class="alt-player-words" id="alt-p1-words"></div>
+                </div>
+
+                
+                <div id="alt-p2-box" class="alt-player-box p2-theme">
+                    <div class="alt-player-header">
+                        <div class="alt-player-title">
+                            <span class="alt-player-dot"></span>
+                            <span class="alt-player-name" id="alt-p2-name">Giocatore 2</span>
+                        </div>
+                        <div class="alt-player-stats">
+                            <span class="alt-player-score" id="alt-p2-score">0 pt</span>
+                            <span class="alt-player-count" id="alt-p2-count">(0)</span>
+                        </div>
+                    </div>
+                    <div class="alt-player-words" id="alt-p2-words"></div>
+                </div>
+            </div>
+        </div>
+
+        
+        
+        
+        <div id="intermission-screen" class="screen" data-screen-id="intermission" data-screen-name="Pausa tra Manche" style="justify-content:center;align-items:center;text-align:center;">
+            <div class="spinner">⏱️</div>
+            <div class="screen-official-badge" style="margin-bottom:8px;">Pausa tra Manche (Pass & Play)</div>
+            <div id="intermission-round-info" class="stat-pill round-pill" style="margin-bottom:12px;display:inline-block;font-size:0.95rem;padding:5px 16px;">Mano 1</div>
+            <h1 class="brand-title" style="font-size:2rem;">TEMPO SCADUTO!</h1>
+            <p style="color:var(--text-muted);margin:10px 0 20px 0;">Passa lo smartphone al prossimo giocatore:</p>
+            <div id="next-player-badge" class="player-tag" style="font-size:1.3rem;padding:10px 24px;margin-bottom:30px;">Giocatore 2</div>
+            <button id="ready-btn" class="btn btn-accent" style="max-width:260px;">Sono Pronto! ➔</button>
+        </div>
+
+        
+        
+        
+        <div id="results-screen" class="screen results-screen-layout" data-screen-id="results" data-screen-name="Risultati Partita">
+            
+            <button id="results-scroll-fab" class="results-scroll-fab" title="Scorri in fondo / Torna in cima" aria-label="Scorri">
+                ⬇
+            </button>
+            
+            <div class="results-pinned-top">
+                <div class="results-top-header">
+                    <h2 class="results-mini-title">RISULTATI PARTITA</h2>
+                    <div id="board-inspect-word" class="results-inspect-badge" title="Tocca per vedere la definizione del termine">
+                        Tocca una parola per vederla
+                    </div>
+                </div>
+                <div class="board-container review-board-container">
+                    <canvas id="review-path-canvas"></canvas>
+                    <div id="review-board"></div>
+                </div>
+            </div>
+
+            
+            <div class="results-scrollable-body">
+                <p class="brand-subtitle" id="results-subtitle" style="margin-bottom: 6px;">Riepilogo Punteggi e Soluzioni</p>
+
+                
+                <div id="review-pending-section" class="result-card review-card hidden" style="margin-bottom:8px;">
+                    <div class="result-header" style="color:var(--warning);">
+                        <span>❓ Parole da Verificare</span>
+                        <span id="review-pending-count" style="font-size:0.85rem;color:var(--warning);">0 parole</span>
+                    </div>
+                    <p style="font-size:0.78rem;color:var(--text-muted);margin:4px 0 8px 0;">
+                        Valuta i termini non presenti nel vocabolario standard. Se li accetti, verranno salvati nel tuo dizionario personale e aggiungeranno punti!
+                    </p>
+                    <div id="review-pending-list" class="review-pending-list"></div>
+                    <div style="display:flex;gap:8px;margin-top:10px;">
+                        <button id="accept-all-pending-btn" class="btn btn-secondary" style="flex:1;font-size:0.8rem;padding:7px 6px;">
+                            ✓ Accetta Tutte
+                        </button>
+                        <button id="reject-all-pending-btn" class="btn btn-secondary" style="flex:1;font-size:0.8rem;padding:7px 6px;color:#f87171;">
+                            ✕ Rifiuta Tutte
+                        </button>
+                    </div>
+                </div>
+
+                
+                <div class="results-summary" id="results-summary-content"></div>
+
+                
+                <div class="result-card" style="margin-bottom:10px;">
+                    <div class="result-header">
+                        <span style="font-size:0.95rem;">Tutte le Parole Possibili</span>
+                        <span id="all-solutions-count" style="font-size:0.88rem;color:var(--primary-light);">0 parole</span>
+                    </div>
+                    
+                    <div class="solutions-toolbar">
+                        <div class="solutions-filter-btns">
+                            <button class="sol-filter-btn active" data-filter="all" id="sol-filter-all">Tutte</button>
+                            <button class="sol-filter-btn" data-filter="found" id="sol-filter-found">✅ Trovate</button>
+                            <button class="sol-filter-btn" data-filter="missed" id="sol-filter-missed">❌ Mancate</button>
+                        </div>
+                        <div class="solutions-sort-btns">
+                            <button class="sol-sort-btn active" data-sort="score-desc" id="sol-sort-score" title="Ordina per punteggio (alto→basso)">⭐↓</button>
+                            <button class="sol-sort-btn" data-sort="score-asc" id="sol-sort-score-asc" title="Ordina per punteggio (basso→alto)">⭐↑</button>
+                            <button class="sol-sort-btn" data-sort="alpha" id="sol-sort-alpha" title="Ordina alfabeticamente">A→Z</button>
+                        </div>
+                    </div>
+                    <div class="solutions-grid" id="solutions-grid"></div>
+                </div>
+
+                
+                <div class="results-bottom-actions">
+                    <button id="next-hand-btn" class="btn btn-accent next-hand-btn">🃏 Altra Mano (Conserva Punti)</button>
+                    <div class="results-secondary-actions">
+                        <button id="play-again-btn" class="btn btn-secondary">🔄 Nuova Partita</button>
+                        <button id="menu-from-results-btn" class="btn btn-secondary">🏠 Menu</button>
+                    </div>
+                </div>
+                
+                <div id="results-scroll-sentinel" style="height:1px;visibility:hidden;"></div>
+            </div>
+        </div>
+
+        
+        
+        
+        <div id="rules-screen" class="screen" data-screen-id="rules" data-screen-name="Regole del Gioco">
+            <h1 class="brand-title" id="rules-title">Regole del Gioco</h1>
+            <div id="rules-content" class="rules-container"></div>
+            <button id="close-rules-btn" class="btn btn-secondary" style="margin-top:auto;">Chiudi Regole</button>
+        </div>
+
+        
+        
+        
+        <div id="settings-screen" class="screen" data-screen-id="settings" data-screen-name="Impostazioni">
+            <h1 class="brand-title" style="font-size:1.8rem;">IMPOSTAZIONI</h1>
+            <p class="brand-subtitle">Opzioni e Preferenze di Gioco</p>
+
+            <div class="settings-card" id="categories-settings">
+                <p class="settings-hint">Le parole del dizionario personale vengono riconosciute solo se la loro categoria è attivata qui:</p>
+                
+            </div>
+
+            <div class="settings-card" id="tags-settings">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                    <span style="font-weight:700;display:block;">🏷️ Filtro Tag Parole (Grammaticali & Tematici)</span>
+                </div>
+                <p class="settings-subhint" style="font-size:0.75rem;color:var(--text-muted);margin:0 0 10px 0;line-height:1.35;">
+                    Disattivando uno o più tag, tutte le parole con <strong>almeno uno</strong> di essi non saranno valide in partita (es. disattivando "Enclitiche" o "Verbi").
+                </p>
+                <div id="tags-settings-list" class="options-tag-strip">
+                    
+                </div>
+            </div>
+
+            <div class="settings-card" id="word-origin-style-settings">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                    <span style="font-weight:700;display:block;">🏷️ Indicatore Origine Parola (Dizionario vs Generata)</span>
+                </div>
+                <p class="settings-subhint" style="font-size:0.75rem;color:var(--text-muted);margin:0 0 10px 0;line-height:1.35;">
+                    Evidenzia se una parola appartiene al vocabolario ufficiale (📖) o se è generata (⚡ enclitica/troncamento). Scegli lo stile visivo:
+                </p>
+                <div class="mode-selector" style="grid-template-columns: repeat(3, 1fr); gap: 6px;">
+                    <button type="button" class="mode-btn active" id="origin-style-icon-btn" data-style="icon">
+                        <span class="icon">📖 / ⚡</span>
+                        <span>Micro-Icone (A)</span>
+                    </button>
+                    <button type="button" class="mode-btn" id="origin-style-border-btn" data-style="border">
+                        <span class="icon" style="font-weight:900;font-size:1.3rem;color:#10b981;">▍</span>
+                        <span>Bordo Colorato (D)</span>
+                    </button>
+                    <button type="button" class="mode-btn" id="origin-style-both-btn" data-style="both">
+                        <span class="icon">📖 ▍</span>
+                        <span>Entrambi (A+D)</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="settings-card">
+                <div class="settings-row" style="align-items:flex-start;">
+                    <div style="flex:1;padding-right:12px;">
+                        <span style="font-weight:700;display:block;">🔀 Incrocio Tracciato (Diagonali)</span>
+                        <p class="settings-subhint" style="font-size:0.75rem;color:var(--text-muted);margin:3px 0 0 0;line-height:1.35;">
+                            Permette di incrociare due diagonali nello stesso riquadro 2x2 (es. <em>C-O-S-A</em>). Se disattivato, nessun tratto diagonale può incrociarsi.
+                        </p>
+                    </div>
+                    <button id="crossing-toggle-settings" class="toggle-btn" style="margin-top:2px;"></button>
+                </div>
+            </div>
+
+            <div class="settings-card">
+                <div class="settings-row">
+                    <span>🔊 Suoni di Gioco</span>
+                    <button id="sound-toggle-settings" class="toggle-btn"></button>
+                </div>
+                <div class="settings-row">
+                    <span>📳 Vibrazione (Aptica)</span>
+                    <button id="haptics-toggle-settings" class="toggle-btn"></button>
+                </div>
+            </div>
+
+            <div class="settings-card">
+                <div class="settings-row" id="devnotes-settings-row" style="align-items:flex-start;">
+                    <div id="devnotes-row-label" style="flex:1;padding-right:12px;cursor:pointer;">
+                        <span style="font-weight:700;display:block;">📝 Pulsante Note & Correzioni</span>
+                        <p class="settings-subhint" style="font-size:0.75rem;color:var(--text-muted);margin:3px 0 0 0;line-height:1.35;">
+                            Mostra un pulsante fluttuante (trascinabile) per prendere appunti, catturare screenshot e tracciare correzioni da qualsiasi schermata.
+                        </p>
+                        <button type="button" id="devnotes-reset-pos-btn" class="text-link-btn" style="font-size:0.75rem;color:var(--primary-light);background:none;border:none;cursor:pointer;padding:0;margin-top:6px;text-decoration:underline;">
+                            ↺ Ripristina posizione predefinita
+                        </button>
+                    </div>
+                    <button id="devnotes-toggle-settings" class="toggle-btn on" style="margin-top:2px;"></button>
+                </div>
+            </div>
+
+            <div class="settings-card" id="about-settings-card" style="cursor:pointer;">
+                <div class="settings-row" style="align-items:center;">
+                    <div style="flex:1;">
+                        <span style="font-weight:700;display:block;">ℹ️ Informazioni & Revisioni</span>
+                        <p class="settings-subhint" style="font-size:0.75rem;color:var(--text-muted);margin:3px 0 0 0;line-height:1.35;">
+                            Versione <span class="current-app-version-txt">0.9.3</span> (Beta) • Crediti, tecnologie e note di rilascio
+                        </p>
+                    </div>
+                    <span style="color:var(--primary-light);font-size:1.15rem;font-weight:bold;margin-left:8px;">➔</span>
+                </div>
+            </div>
+
+            <button id="close-settings-btn" class="btn btn-secondary" style="margin-top:auto;">Chiudi Impostazioni</button>
+        </div>
+
+        
+        
+        
+        <div id="dict-screen" class="screen" data-screen-id="dict" data-screen-name="Dizionario Personale">
+            <div style="display:flex;align-items:center;justify-content:space-between;width:100%;margin-bottom:4px;">
+                <h1 class="brand-title" style="font-size:1.8rem;text-align:left;"><span class="emoji-icon">📚</span> IL MIO DIZIONARIO</h1>
+                <span id="dict-word-count" class="player-tag" style="white-space:nowrap;">0 parole</span>
+            </div>
+            <p class="brand-subtitle" style="text-align:left;margin-bottom:10px;">Dizionario Personale • Parole personalizzate, acronimi e categorie</p>
+
+            
+            <div class="form-group" style="margin-bottom:8px;">
+                <input type="text" id="dict-search-input" class="select-custom" placeholder="🔍 Cerca parola (vocabolario o personale)..." style="text-transform:uppercase;font-size:0.9rem;padding:8px 12px;margin-bottom:0;">
+            </div>
+
+            
+            <div style="margin-bottom:10px;">
+                <button id="dict-open-editor-btn" class="btn" style="width:100%;">
+                    ➕ Nuova Parola
+                </button>
+            </div>
+
+            
+            <div id="dict-category-filter" class="dict-filter-chips"></div>
+
+            
+            <div id="dict-tag-subfilter" class="dict-tag-subfilter hidden"></div>
+
+            
+            <div id="dict-tag-picker" class="tag-picker-panel hidden" style="margin-bottom:12px;"></div>
+
+            
+            <div id="dict-word-list" class="dict-word-list">
+                <p class="dict-empty-msg">Nessuna parola ancora.<br>Aggiungile durante la partita o creale qui!</p>
+            </div>
+
+            
+            <div class="dict-action-bar">
+                <button id="dict-export-btn" class="btn btn-secondary dict-action-btn" title="Esporta JSON">
+                    ⬇️ Esporta
+                </button>
+                <button id="dict-import-btn" class="btn btn-secondary dict-action-btn" title="Importa JSON">
+                    ⬆️ Importa
+                </button>
+                <button id="dict-share-btn" class="btn btn-secondary dict-action-btn" title="Genera Codice/QR">
+                    🔗 Condividi
+                </button>
+                <button id="dict-receive-btn" class="btn btn-secondary dict-action-btn" title="Importa Codice">
+                    📥 Ricevi
+                </button>
+            </div>
+            <input type="file" id="dict-file-input" accept=".json" style="display:none;">
+
+            <button id="close-dict-btn" class="btn btn-secondary" style="margin-top:10px;">Chiudi</button>
+        </div>
+
+        
+        
+        
+        <div id="about-screen" class="screen" data-screen-id="about" data-screen-name="Informazioni & Revisioni">
+            <h1 class="brand-title" style="font-size:1.8rem;"><span class="emoji-icon">ℹ️</span> INFORMAZIONI & REVISIONI</h1>
+            <p class="brand-subtitle">Panoramica, dettagli e registro versioni</p>
+
+            <div id="about-content" class="about-container">
+                
+            </div>
+
+            <button id="close-about-btn" class="btn btn-secondary" style="margin-top:auto;">Chiudi Informazioni</button>
+        </div>
+
+        
+        
+        
+
+        
+
+
+        
+        <div id="category-modal" class="overlay hidden" data-screen-id="modal_category" data-screen-name="Assegna Categoria">
+            <div class="modal-card">
+                <h3 class="modal-title">Aggiungi al Dizionario</h3>
+                <p class="modal-subtitle">Parola: <strong id="modal-word-display">---</strong></p>
+                <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:14px;">Scegli la categoria:</p>
+                <div id="category-grid" class="category-grid">
+                    
+                </div>
+                <button id="category-cancel-btn" class="btn btn-secondary" style="margin-top:14px;">Annulla</button>
+            </div>
+        </div>
+
+        
+        <div id="share-modal" class="overlay hidden" data-screen-id="modal_share" data-screen-name="Condividi Dizionario">
+            <div class="modal-card">
+                <h3 class="modal-title"><span class="emoji-icon">🔗</span> Condividi Dizionario</h3>
+                <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:12px;">Mostra il QR code all'altro dispositivo oppure copia il testo:</p>
+                <div id="share-qr-container" style="display:flex;justify-content:center;margin-bottom:14px;min-height:80px;"></div>
+                <div class="share-code-box">
+                    <span id="share-code-text" style="font-size:0.7rem;word-break:break-all;color:var(--primary-light);"></span>
+                </div>
+                <div style="display:flex;gap:8px;margin-top:12px;">
+                    <button id="share-copy-btn" class="btn" style="flex:1;">📋 Copia Codice</button>
+                    <button id="share-close-btn" class="btn btn-secondary" style="flex:1;">Chiudi</button>
+                </div>
+            </div>
+        </div>
+
+        
+        <div id="import-modal" class="overlay hidden" data-screen-id="modal_import" data-screen-name="Importa Dizionario">
+            <div class="modal-card">
+                <h3 class="modal-title"><span class="emoji-icon">📥</span> Importa Dizionario</h3>
+                <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:12px;">Incolla il codice BGL: ricevuto dall'altro dispositivo:</p>
+                <textarea id="import-code-input" class="select-custom"
+                          placeholder="BGL:eyJ2Ij..."
+                          style="width:100%;min-height:90px;resize:vertical;font-size:0.75rem;font-family:monospace;"></textarea>
+                <div style="display:flex;gap:8px;margin-top:12px;">
+                    <button id="import-confirm-btn" class="btn" style="flex:2;">✓ Importa</button>
+                    <button id="import-cancel-btn" class="btn btn-secondary" style="flex:1;">Annulla</button>
+                </div>
+            </div>
+        </div>
+
+        
+        <div id="conflict-modal" class="overlay hidden" data-screen-id="modal_conflict" data-screen-name="Risoluzione Conflitti Dizionario">
+            <div class="modal-card">
+                <h3 class="modal-title"><span class="emoji-icon">⚠️</span> Conflitto</h3>
+                <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:4px;">
+                    Parola già presente con categoria diversa. Quale versione mantenere?
+                </p>
+                <div class="conflict-word-display">
+                    <strong id="conflict-word">PAROLA</strong>
+                </div>
+                <div class="conflict-options">
+                    <div class="conflict-option" id="conflict-keep-mine">
+                        <div class="conflict-label">Il mio dizionario:</div>
+                        <div id="conflict-mine-cat" class="conflict-cat-pill"></div>
+                    </div>
+                    <div class="conflict-option" id="conflict-use-incoming">
+                        <div class="conflict-label">Dizionario importato:</div>
+                        <div id="conflict-incoming-cat" class="conflict-cat-pill"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <div id="p2p-sync-modal" class="overlay hidden" data-screen-id="modal_p2p_sync" data-screen-name="Sincronizzazione P2P">
+            <div class="modal-card p2p-sync-card">
+                
+                <div id="p2p-sync-stage-choose">
+                    <h3 class="modal-title"><span class="emoji-icon">🤝</span> Sincronizza Dizionari</h3>
+                    <p class="modal-subtitle" id="p2p-sync-choose-subtitle">Connessione stabilita con l'avversario!</p>
+                    <div class="p2p-sync-diff-stats" id="p2p-sync-diff-stats"></div>
+                    <p style="font-size:0.82rem;color:var(--text-muted);margin:8px 0 12px;">Come desideri gestire i vocabolari personalizzati per la sfida?</p>
+                    <div class="p2p-sync-mode-list">
+                        <button class="p2p-sync-mode-btn" id="p2p-sync-mode-auto">
+                            <span class="sync-icon">⚡</span>
+                            <div class="sync-info">
+                                <strong>Sincronizzazione Automatica</strong>
+                                <small>Unisci tutti i vocaboli nei dizionari di entrambi</small>
+                            </div>
+                        </button>
+                        <button class="p2p-sync-mode-btn" id="p2p-sync-mode-common">
+                            <span class="sync-icon">🎯</span>
+                            <div class="sync-info">
+                                <strong>Solo Parole Comuni</strong>
+                                <small>Gioca solo con le parole presenti in entrambi i dispositivi</small>
+                            </div>
+                        </button>
+                        <button class="p2p-sync-mode-btn" id="p2p-sync-mode-interactive">
+                            <span class="sync-icon">🔍</span>
+                            <div class="sync-info">
+                                <strong>Parola per Parola (Interattiva)</strong>
+                                <small>Esamina e decidi se mantenere o eliminare</small>
+                            </div>
+                        </button>
+                        <button class="p2p-sync-mode-btn" id="p2p-sync-mode-skip">
+                            <span class="sync-icon">⏭️</span>
+                            <div class="sync-info">
+                                <strong>Salta Sincronizzazione</strong>
+                                <small>Gioca subito senza modificare i dizionari</small>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                
+                <div id="p2p-sync-stage-review" class="hidden">
+                    <div class="p2p-review-header">
+                        <span id="p2p-review-counter" style="font-weight:700;color:var(--primary-light);">Parola 1 di 5</span>
+                        <span id="p2p-review-origin-tag" class="dict-cat-badge">Solo nel tuo dizionario</span>
+                    </div>
+                    <div class="p2p-review-word-box">
+                        <h2 id="p2p-review-word" style="font-family:'Outfit',sans-serif;font-size:1.8rem;margin:6px 0;letter-spacing:2px;color:#ffffff;">PAROLA</h2>
+                        <div id="p2p-review-meta" class="p2p-review-meta">
+                            <span id="p2p-review-cat" class="dict-cat-badge">🔤 Acronimo</span>
+                        </div>
+                    </div>
+                    <div class="p2p-review-actions">
+                        <button id="p2p-review-keep-both" class="btn btn-review-action btn-keep-both">
+                            🟢 Mantieni in Entrambi
+                        </button>
+                        <button id="p2p-review-keep-one" class="btn btn-secondary btn-review-action btn-keep-one">
+                            🟡 Mantieni Solo in Uno
+                        </button>
+                        <button id="p2p-review-delete-both" class="btn btn-secondary btn-review-action btn-delete-both" style="border-color:rgba(239,68,68,0.4);color:#fca5a5;">
+                            🔴 Elimina da Entrambi
+                        </button>
+                    </div>
+                </div>
+
+                
+                <div id="p2p-sync-stage-done" class="hidden" style="text-align:center;">
+                    <div style="font-size:2.5rem;margin:8px 0;">🎉</div>
+                    <h3 id="p2p-sync-done-title" class="modal-title">Dizionari Sincronizzati!</h3>
+                    <p id="p2p-sync-summary-text" style="font-size:0.88rem;color:var(--text-muted);margin:12px 0 18px;"></p>
+                    <button id="p2p-sync-start-game-btn" class="btn btn-accent" style="width:100%;">🚀 Inizia la Partita!</button>
+                </div>
+            </div>
+        </div>
+
+        
+        <div id="dict-word-editor-modal" class="overlay hidden" data-screen-id="modal_dict_editor" data-screen-name="Editor Vocabolo (Dizionario)">
+            <div class="modal-card dict-editor-card">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                    <h3 class="modal-title" id="dict-editor-title"><span class="emoji-icon">✏️</span> Editor Vocabolo</h3>
+                    <button id="dict-editor-close-x-btn" class="icon-btn" style="font-size:1.1rem;">✕</button>
+                </div>
+
+                
+                <div class="form-group" style="margin-bottom:10px;">
+                    <label for="dict-editor-word-input">Parola o Lemma (Infinito/Singolare)</label>
+                    <input type="text" id="dict-editor-word-input" class="select-custom"
+                           placeholder="Es. GIOCARE, GATTO, SELFIE..."
+                           style="text-transform:uppercase;font-size:1.15rem;font-weight:700;letter-spacing:1.5px;margin-bottom:4px;">
+                    
+                    
+                    <div id="dict-editor-presence-badge" class="dict-presence-badge status-empty">
+                        <span>💡 Inserisci una parola di almeno 3 lettere</span>
+                    </div>
+                </div>
+
+                
+                <div class="form-group" style="margin-bottom:12px;">
+                    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
+                        <label for="dict-editor-cat-select" style="margin-bottom:0;">Categoria Assegnata</label>
+                        <button type="button" id="dict-editor-new-cat-btn" class="text-link-btn" style="font-size:0.78rem;color:var(--primary-light);background:none;border:none;cursor:pointer;">
+                            ➕ Nuova Categoria
+                        </button>
+                    </div>
+                    <select id="dict-editor-cat-select" class="select-custom" style="width:100%;">
+                        
+                    </select>
+                </div>
+
+                
+                <div id="dict-editor-inflections-section" class="inflections-accordion-box hidden">
+                    <div id="dict-editor-inflections-toggle" class="inflections-accordion-header">
+                        <div style="display:flex;align-items:center;gap:6px;">
+                            <span>⚡</span>
+                            <strong id="dict-editor-inflections-header-text">Coniugazioni & Declinazioni</strong>
+                        </div>
+                        <span id="dict-editor-inflections-arrow">▼</span>
+                    </div>
+                    
+                    <div id="dict-editor-inflections-content" class="inflections-accordion-body">
+                        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:0.78rem;">
+                            <span id="dict-editor-inflections-count-info" style="color:var(--text-muted);">0 forme generate</span>
+                            <div style="display:flex;gap:6px;">
+                                <button type="button" id="dict-editor-select-all-btn" class="mini-btn">Tutte</button>
+                                <button type="button" id="dict-editor-deselect-all-btn" class="mini-btn">Nessuna</button>
+                            </div>
+                        </div>
+                        <div id="dict-editor-inflections-chips" class="inflections-chips-grid"></div>
+
+                        
+                        <div style="display:flex;gap:6px;margin-top:8px;padding-top:8px;border-top:1px dashed rgba(255,255,255,0.1);">
+                            <input type="text" id="dict-editor-add-form-input" class="select-custom" placeholder="➕ Aggiungi forma irregolare..." style="flex:1;font-size:0.8rem;text-transform:uppercase;margin-bottom:0;">
+                            <button type="button" id="dict-editor-add-form-btn" class="mini-btn" style="padding:4px 10px;font-size:0.8rem;">Aggiungi</button>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="dict-editor-actions" style="margin-top:14px;display:flex;flex-direction:column;gap:8px;">
+                    <button id="dict-editor-save-all-btn" class="btn" style="width:100%;">
+                        💾 Salva Parola nel Dizionario
+                    </button>
+                    
+                    
+                    <button id="dict-editor-exclude-btn" class="btn btn-secondary hidden" style="width:100%;border-color:rgba(239,68,68,0.4);color:#fca5a5;font-size:0.85rem;">
+                        🚫 Disabilita dal Vocabolario Base
+                    </button>
+
+                    <div style="display:flex;gap:8px;">
+                        <button id="dict-editor-delete-btn" class="btn btn-secondary hidden" style="flex:1;border-color:rgba(239,68,68,0.4);color:#fca5a5;">
+                            🗑️ Elimina
+                        </button>
+                        <button id="dict-editor-cancel-btn" class="btn btn-secondary" style="flex:1;">
+                            Chiudi
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <div id="camera-scanner-modal" class="overlay hidden" data-screen-id="modal_camera" data-screen-name="Scanner QR Code">
+            <div class="modal-card" style="max-width:420px;width:92%;text-align:center;">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                    <h3 class="modal-title"><span class="emoji-icon">📷</span> Scansiona QR Code</h3>
+                    <button id="camera-scanner-close-x-btn" class="icon-btn">✕</button>
+                </div>
+                <p id="camera-scanner-prompt" style="font-size:0.82rem;color:var(--text-muted);margin-bottom:10px;">
+                    Inquadra il QR Code visualizzato sull'altro schermo
+                </p>
+
+                
+                <div id="camera-scanner-viewfinder" style="width:100%;min-height:300px;border-radius:var(--radius-md);overflow:hidden;background:#000;border:2px solid var(--primary-glow);margin-bottom:10px;"></div>
+
+                
+                <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:10px;margin-top:8px;">
+                    <p style="font-size:0.75rem;color:var(--text-muted);margin-bottom:4px;">Se la scansione non funziona, incolla o scrivi il codice qui:</p>
+                    <div class="scanner-manual-row">
+                        <textarea id="camera-scanner-manual-input" class="select-custom scanner-manual-input" placeholder="Incolla il codice QR..." rows="6" autocomplete="off" autocapitalize="off" spellcheck="false"></textarea>
+                        <button id="camera-scanner-manual-submit-btn" class="btn scanner-manual-submit">Usa codice</button>
+                    </div>
+                </div>
+
+                <button id="camera-scanner-close-btn" class="btn btn-secondary" style="width:100%;margin-top:10px;">Annulla</button>
+            </div>
+        </div>
+
+        
+        <div id="direct-answer-modal" class="overlay hidden" data-screen-id="modal_direct_answer" data-screen-name="Risposta Connessione P2P">
+            <div class="modal-card" style="max-width:400px;width:90%;text-align:center;">
+                <h3 class="modal-title"><span class="emoji-icon">📲</span> Risposta di Connessione</h3>
+                <p style="font-size:0.82rem;color:var(--text-muted);margin:8px 0;">Mostra il QR all'Host oppure inviagli questo codice via WhatsApp:</p>
+                <div id="direct-answer-qr-container" style="display:flex;justify-content:center;margin:12px 0;"></div>
+                <textarea id="direct-answer-code" class="select-custom scanner-manual-input" rows="3" readonly aria-label="Codice di risposta da inviare all'host"></textarea>
+                <button id="direct-answer-copy-btn" class="btn btn-secondary connection-copy-btn" type="button">Copia risposta per l'host</button>
+                <p style="font-size:0.78rem;color:var(--primary-light);">In attesa che l'Host inquadri...</p>
+                <button id="direct-answer-close-btn" class="btn btn-secondary" style="width:100%;margin-top:10px;">Chiudi</button>
+            </div>
+        </div>
+
+        
+        <div id="connection-help-modal" class="overlay hidden" data-screen-id="modal_conn_help" data-screen-name="Guida Connessione 2 dispositivi">
+            <div class="modal-card" style="max-width:480px;width:94%;max-height:88vh;overflow-y:auto;text-align:left;">
+                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+                    <h3 class="modal-title"><span class="emoji-icon">ℹ️</span> Guida Connessione 2 Giocatori</h3>
+                    <button id="connection-help-close-x-btn" class="icon-btn">✕</button>
+                </div>
+
+                
+                <div class="help-guide-card" style="background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.25);border-radius:var(--radius-md);padding:12px;margin-bottom:12px;">
+                    <div style="font-weight:700;color:#34d399;font-size:0.92rem;margin-bottom:6px;display:flex;align-items:center;gap:6px;">
+                        <span>📴</span> <span>1. Modalità Hotspot (Zero Internet)</span>
+                    </div>
+                    <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:8px;">
+                        Ideale in aereo, in treno, in montagna o ovunque non ci sia segnale. Non consuma giga!
+                    </p>
+                    <ol style="font-size:0.8rem;color:var(--text-main);padding-left:18px;margin:0;line-height:1.45;">
+                        <li>Il <strong>Dispositivo 1</strong> attiva l'<strong>Hotspot Personale</strong> dalle impostazioni del telefono (non serve avere i dati mobili attivi).</li>
+                        <li>In alternativa, i dispositivi possono collegarsi alla <strong>stessa rete Wi-Fi</strong>. In entrambi i casi devono essere sulla stessa rete locale.</li>
+                        <li>Nel gioco, selezionate la scheda <strong>"📴 Hotspot / Locale"</strong>:
+                            <ul style="padding-left:14px;margin-top:4px;">
+                                <li>L'Host tocca <em>"Crea Stanza Diretta"</em> e mostra il QR.</li>
+                                <li>L'Ospite tocca <em>"Inquadra QR dell'Host"</em> e punta la fotocamera.</li>
+                                <li>L'Host inquadra il QR di risposta dell'Ospite: <strong>siete collegati in tempo reale continuo!</strong></li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+
+                
+                <div class="help-guide-card" style="background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.25);border-radius:var(--radius-md);padding:12px;margin-bottom:12px;">
+                    <div style="font-weight:700;color:#818cf8;font-size:0.92rem;margin-bottom:6px;display:flex;align-items:center;gap:6px;">
+                        <span>🌐</span> <span>2. Modalità Internet Cloud (A Distanza)</span>
+                    </div>
+                    <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:8px;">
+                        Ideale per giocare a distanza tra città diverse, ciascuno con la propria connessione (Wi-Fi o 4G/5G).
+                    </p>
+                    <ol style="font-size:0.8rem;color:var(--text-main);padding-left:18px;margin:0;line-height:1.45;">
+                        <li>Selezionate la scheda <strong>"🌐 Internet Cloud"</strong>.</li>
+                        <li>L'Host tocca <strong>"Crea Stanza"</strong> e comunica il codice stanza mostrato sullo schermo.</li>
+                        <li>L'Ospite inserisce il codice e tocca <strong>"Connettiti"</strong> (oppure inquadra il QR Code).</li>
+                    </ol>
+                </div>
+
+                
+                <div class="help-guide-card" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:var(--radius-md);padding:12px;margin-bottom:12px;">
+                    <div style="font-weight:700;color:var(--text-main);font-size:0.92rem;margin-bottom:6px;display:flex;align-items:center;gap:6px;">
+                        <span>💻📱</span> <span>3. Computer, Tablet e Smartphone Misti</span>
+                    </div>
+                    <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0;line-height:1.4;">
+                        Puoi giocare tra qualsiasi dispositivo (PC Windows/Mac, Android, iPhone, iPad) e in qualsiasi combinazione (da browser web o da App installata). Se usi un computer senza fotocamera, puoi incollare il codice direttamente con la tastiera!
+                    </p>
+                </div>
+
+                <button id="connection-help-close-btn" class="btn" style="width:100%;">Ho Capito, Giochiamo!</button>
+            </div>
+        </div>
+
+        
+        <div id="word-definition-modal" class="overlay hidden" data-screen-id="modal_word_def" data-screen-name="Definizione Parola">
+            <div class="modal-card" style="max-width:480px;width:94%;max-height:85vh;overflow-y:auto;text-align:left;">
+                
+                
+                <div class="definition-search-bar">
+                    <input type="text" id="definition-search-input" placeholder="🔍 Scrivi parola da cercare..." class="definition-search-input" autocomplete="off" autocorrect="off" spellcheck="false" />
+                    <button type="button" id="definition-search-btn" class="btn definition-search-btn">🔍 Cerca definizione</button>
+                </div>
+
+                <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px;gap:8px;">
+                    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+                        <button id="definition-modal-back-btn" class="icon-btn hidden" title="Torna alla parola precedente" style="font-size:1rem;padding:4px 8px;border-radius:6px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);">⬅️</button>
+                        <div>
+                            <h3 id="definition-modal-word" class="modal-title" style="font-size:1.35rem;letter-spacing:1px;color:var(--primary-light);margin:0;display:inline-block;">PAROLA</h3>
+                            <span id="definition-modal-lang" style="font-size:0.75rem;color:var(--text-muted);background:rgba(255,255,255,0.08);padding:2px 8px;border-radius:10px;margin-left:6px;">Italiano</span>
+                            <span id="definition-modal-origin-badge" class="modal-origin-badge hidden"></span>
+                        </div>
+                    </div>
+                    <button id="definition-modal-close-x-btn" class="icon-btn" style="flex-shrink:0;">✕</button>
+                </div>
+
+                
+                <div id="word-tag-strip" class="word-tag-strip"></div>
+                <div id="word-tag-picker" class="tag-picker-panel hidden"></div>
+
+                
+                <button type="button" id="definition-modal-ban-btn" class="modal-ban-btn hidden">
+                    🚫 Non è una forma corretta (Escludi per sempre)
+                </button>
+
+                
+                <div id="definition-gemini-card" class="definition-gemini-box" style="display:none;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px; flex-wrap:wrap; gap:6px;">
+                        <div style="display:flex; align-items:center; gap:6px;">
+                            <span style="font-size:1.15rem;">🤖</span>
+                            <strong id="definition-gemini-badge" style="font-size:0.82rem; color:#93c5fd; letter-spacing:0.5px;">Sintesi Intelligente AI</strong>
+                        </div>
+                        <button type="button" id="definition-gemini-action-btn" class="mini-btn" style="font-size:0.75rem; padding:3px 9px; border-radius:6px; background:rgba(96,165,250,0.18); border:1px solid rgba(96,165,250,0.35); color:#bfdbfe; cursor:pointer;" title="Configura o modifica la tua chiave Gemini">
+                            ⚙️ Chiave API
+                        </button>
+                    </div>
+                    <div id="definition-gemini-content" style="font-size:0.85rem; line-height:1.52; color:#e2e8f0;"></div>
+                </div>
+
+                <div id="definition-modal-body" style="min-height:90px;margin-bottom:14px;">
+                    <div id="definition-loading-spinner" class="spinner" style="font-size:1.8rem;margin:20px auto;text-align:center;">📖</div>
+                    <div id="definition-content" style="font-size:0.88rem;line-height:1.55;color:var(--text-main);"></div>
+                </div>
+
+                <div class="definition-external-links" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,0.1);">
+                    <a id="definition-link-treccani" href="#" target="_blank" class="btn btn-secondary" style="flex:1;min-width:100px;font-size:0.78rem;padding:7px 8px;text-align:center;text-decoration:none;">
+                        🏛️ Treccani
+                    </a>
+                    <a id="definition-link-wiktionary" href="#" target="_blank" class="btn btn-secondary" style="flex:1;min-width:100px;font-size:0.78rem;padding:7px 8px;text-align:center;text-decoration:none;">
+                        📖 Wikizionario
+                    </a>
+                    <a id="definition-link-google" href="#" target="_blank" class="btn btn-secondary" style="flex:1;min-width:100px;font-size:0.78rem;padding:7px 8px;text-align:center;text-decoration:none;">
+                        🌐 Cerca Online
+                    </a>
+                    <button type="button" id="definition-gemini-trigger-btn" class="btn btn-secondary" style="flex:1;min-width:115px;font-size:0.78rem;padding:7px 8px;text-align:center;" title="Spiega in-app con Google Gemini">
+                        🤖 Chiedi a Gemini
+                    </button>
+                    <button type="button" id="definition-gemini-key-btn" class="btn btn-secondary" style="flex:1;min-width:100px;font-size:0.78rem;padding:7px 8px;text-align:center;" title="Imposta o rimuovi la tua chiave API Google Gemini">
+                        🔑 API Key
+                    </button>
+                </div>
+                <button id="definition-modal-close-btn" class="btn" style="width:100%;margin-top:12px;">Chiudi</button>
+            </div>
+        </div>
+
+        
+        <div id="loading-overlay" class="loading-overlay">
+            <div class="loading-content">
+                <div class="loading-logo-ring">
+                    <img src="assets/icons/07_authentic_dice_circle.jpg" alt="Paroliere Logo" class="loading-logo-img">
+                </div>
+                <h1 class="loading-app-title">PAROLIERE</h1>
+                <p class="loading-app-subtitle">by Lux</p>
+                <div class="loading-box">
+                    <div class="loading-status-row">
+                        <span id="loading-message" class="loading-message">Indicizzazione vocabolario...</span>
+                        <span id="loading-percent-badge" class="loading-percent-badge">0%</span>
+                    </div>
+                    <div class="loading-bar-track">
+                        <div id="loading-bar" class="loading-bar-fill" style="width: 0%;"></div>
+                    </div>
+                </div>
+                
+                <div class="dice-3d-scene">
+                    <div class="dice-3d-cube">
+                        <div class="cube-face front">P</div>
+                        <div class="cube-face back">A</div>
+                        <div class="cube-face right">R</div>
+                        <div class="cube-face left">O</div>
+                        <div class="cube-face top">L</div>
+                        <div class="cube-face bottom">I</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    
+    <div id="player-names-modal" class="modal-overlay hidden" data-screen-id="modal_player_names" data-screen-name="Nomi Giocatori Sfida" role="dialog" aria-modal="true">
+        <div class="modal-card player-names-card">
+            <div class="player-names-header">
+                <span class="player-names-icon">👥</span>
+                <div>
+                    <h3 class="modal-title" style="margin:0;font-size:1.25rem;">Nomi dei Giocatori</h3>
+                    <p class="modal-subtitle" style="margin:2px 0 0 0;font-size:0.8rem;">Personalizza i partecipanti alla sfida:</p>
+                </div>
+            </div>
+
+            <div class="player-names-form">
+                <div class="player-name-field-group">
+                    <label for="player-name-p1" class="player-name-label">
+                        <span class="player-dot p1-dot"></span> Giocatore 1 (Inizia la sfida)
+                    </label>
+                    <div class="player-input-wrap">
+                        <input type="text" id="player-name-p1" class="select-custom player-name-input" maxlength="20" placeholder="Es. Giocatore 1" autocomplete="off" autocorrect="off" spellcheck="false">
+                    </div>
+                </div>
+
+                <div class="player-swap-wrap">
+                    <button type="button" id="player-names-swap-btn" class="btn btn-secondary player-swap-btn" title="Scambia ordine giocatori">
+                        ⇅ Scambia Ordine Giocatori
+                    </button>
+                </div>
+
+                <div class="player-name-field-group">
+                    <label for="player-name-p2" class="player-name-label">
+                        <span class="player-dot p2-dot"></span> Giocatore 2
+                    </label>
+                    <div class="player-input-wrap">
+                        <input type="text" id="player-name-p2" class="select-custom player-name-input" maxlength="20" placeholder="Es. Giocatore 2" autocomplete="off" autocorrect="off" spellcheck="false">
+                    </div>
+                </div>
+            </div>
+
+            <div class="player-names-actions">
+                <button type="button" id="player-names-confirm-btn" class="btn player-names-confirm-btn">
+                    🎮 Conferma e Inizia ➔
+                </button>
+                <button type="button" id="player-names-cancel-btn" class="btn btn-secondary" style="margin-top:6px;">
+                    ✕ Annulla
+                </button>
+            </div>
+        </div>
+    </div>
+
+    
+    <div id="exit-confirm-modal" class="modal-overlay hidden" data-screen-id="modal_exit_confirm" data-screen-name="Conferma Abbandono Partita" role="dialog" aria-modal="true">
+        <div class="modal-card exit-confirm-card">
+            <p class="exit-confirm-msg">Vuoi davvero uscire dalla partita in corso?</p>
+            <div class="exit-confirm-actions">
+                <button id="exit-confirm-yes" class="btn btn-danger-outline">Esci</button>
+                <button id="exit-confirm-no" class="btn">Continua a giocare</button>
+            </div>
+        </div>
+    </div>
+
+    
+    <div id="app-exit-confirm-modal" class="modal-overlay hidden" data-screen-id="modal_app_exit_confirm" data-screen-name="Conferma Uscita Applicazione" role="dialog" aria-modal="true">
+        <div class="modal-card exit-confirm-card">
+            <p class="exit-confirm-msg">Vuoi davvero uscire da <strong>Paroliere</strong>?</p>
+            <div class="exit-confirm-actions">
+                <button id="app-exit-confirm-yes" class="btn btn-danger-outline">Esci</button>
+                <button id="app-exit-confirm-no" class="btn">Rimani nell'app</button>
+            </div>
+        </div>
+    </div>
+
+    
+    <div id="boggle-global-toast" class="boggle-toast">
+        <span id="boggle-toast-msg"></span>
+        <button type="button" id="boggle-toast-undo-btn" class="boggle-toast-undo">Annulla</button>
+    </div>
+
+    </div>
+
+    
+    <script src="js/lib/peerjs.min.js"></script>
+    <script src="js/lib/qrcode.min.js"></script>
+    <script src="js/lib/html5-qrcode.min.js"></script>
+    <script src="js/lib/html2canvas.min.js"></script>
+    <script src="js/game.min.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js').catch(err => console.log('SW Error', err));
+        }
+    </script>
+
+    
+    <script>
+      // Anti-iFrame Clickjacking Defense
+      if (window.top !== window.self) {
+        try {
+          window.top.location.href = window.location.href;
+        } catch (err) {
+          document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;background:#0a0f1e;color:#fff;font-family:sans-serif;text-align:center;"><h2>Accesso non consentito all\'interno di un frame.</h2></div>';
+        }
+      }
+      // Anti-Inspect & DevTools Shortcuts Deterrent
+      document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) || (e.ctrlKey && e.key === 'u')) {
+          e.preventDefault();
+        }
+      });
+    </script>
+    </body>
+</html>
