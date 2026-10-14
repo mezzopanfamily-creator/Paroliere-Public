@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "tracks": [
+    {
+      "name": "alex-morgan-ragtime-jazz-midnight-club-567540",
+      "src": "./assets/music/alex-morgan-ragtime-jazz-midnight-club-567540.mp3.enc",
+      "type": "audio/mpeg",
+      "encrypted": true
+    },
+    {
+      "name": "pr_cannonball",
+      "src": "./assets/music/pr_cannonball.mp3.enc",
+      "type": "audio/mpeg",
+      "encrypted": true
+    },
+    {
+      "name": "pr_originalrags",
+      "src": "./assets/music/pr_originalrags.mp3.enc",
+      "type": "audio/mpeg",
+      "encrypted": true
+    },
+    {
+      "name": "vp_entertainer",
+      "src": "./assets/music/vp_entertainer.mp3.enc",
+      "type": "audio/mpeg",
+      "encrypted": true
+    }
+  ]
+}
